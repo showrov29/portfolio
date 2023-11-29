@@ -24,6 +24,17 @@ module.exports = {
 				light: "#9f55ff",
 				dark: "#7000ff",
 			},
+			primary: {
+				graydark: "#736B8E",
+				graydark50: "#9D98B0",
+				purple: "#6E2DFA",
+				purple50: "#C3AFED",
+				purple10: "#F1EAFE",
+			},
+			secondary: {
+				graylight: "#E0DBED",
+				greendark: "#00B493",
+			},
 			gray: {
 				light: {
 					1: "#f0f0f0",
@@ -43,6 +54,8 @@ module.exports = {
 		fontFamily: {
 			sans: ["Calibre", "sans-serif"],
 			mono: ['"JetBrains Mono"', "monospace"],
+			sysui: ["system-ui"],
+			revert: ["revert"],
 		},
 		spacing: {
 			px: "1px",
@@ -100,18 +113,11 @@ module.exports = {
 		backgroundColor: (theme) => theme("colors"),
 		backgroundImage: {
 			none: "none",
-			"gradient-to-t": "linear-gradient(to top, var(--tw-gradient-stops))",
-			"gradient-to-tr":
-				"linear-gradient(to top right, var(--tw-gradient-stops))",
-			"gradient-to-r": "linear-gradient(to right, var(--tw-gradient-stops))",
-			"gradient-to-br":
-				"linear-gradient(to bottom right, var(--tw-gradient-stops))",
-			"gradient-to-b": "linear-gradient(to bottom, var(--tw-gradient-stops))",
-			"gradient-to-bl":
-				"linear-gradient(to bottom left, var(--tw-gradient-stops))",
-			"gradient-to-l": "linear-gradient(to left, var(--tw-gradient-stops))",
-			"gradient-to-tl":
-				"linear-gradient(to top left, var(--tw-gradient-stops))",
+			linear:
+				"var(--gradient-accent, linear-gradient(90deg, #5F72BD 0%, #9B23EA 100%))",
+			gradientblack:
+				"var(--gradient-accent, linear-gradient(0deg, #000000   0%, #00000000 100%))",
+			reason: "public/reason/Rectangle 94.png",
 		},
 		backgroundOpacity: (theme) => theme("opacity"),
 		backgroundPosition: {
@@ -222,7 +228,9 @@ module.exports = {
 			"2xl": "0 25px 25px rgba(0, 0, 0, 0.15)",
 			none: "0 0 #0000",
 		},
-		fill: { current: "currentColor" },
+		fill: {
+			current: "currentColor",
+		},
 		grayscale: {
 			0: "0",
 			DEFAULT: "100%",
