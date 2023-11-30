@@ -76,9 +76,9 @@ const Work = ({ clientWidth }) => {
 
 		setTimeout(() => {
 			setIsActive(false);
-			macRef.current.scrollIntoView({
-				behavior: "smooth",
-			});
+			// macRef.current.scrollIntoView({
+			// 	behavior: "smooth",
+			// });
 			setGunStyle({
 				transform: "translateY(500px)",
 				visibility: "hidden",
@@ -95,22 +95,22 @@ const Work = ({ clientWidth }) => {
 		}, 3000);
 	};
 
-	useEffect(() => {
-		const revealTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
-		revealTl.from(
-			targetSection.current.querySelectorAll(".seq"),
-			{ opacity: 0, duration: 0.5, stagger: 0.5 },
-			"<"
-		);
+	// useEffect(() => {
+	// 	const revealTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
+	// 	revealTl.from(
+	// 		targetSection.current.querySelectorAll(".seq"),
+	// 		{ opacity: 0, duration: 0.5, stagger: 0.5 },
+	// 		"<"
+	// 	);
 
-		ScrollTrigger.create({
-			trigger: targetSection.current.querySelector(".work-wrapper"),
-			start: "100px bottom",
-			end: `center center`,
-			animation: revealTl,
-			scrub: 0,
-		});
-	}, [targetSection, isActive]);
+	// 	ScrollTrigger.create({
+	// 		trigger: targetSection.current.querySelector(".work-wrapper"),
+	// 		start: "100px bottom",
+	// 		end: `center center`,
+	// 		animation: revealTl,
+	// 		scrub: 0,
+	// 	});
+	// }, [targetSection, isActive]);
 
 	useEffect(() => {
 		VanillaTilt.init(companyCard.current, options);
@@ -118,22 +118,21 @@ const Work = ({ clientWidth }) => {
 
 	useEffect(() => {
 		if (inputRef.current) {
-			const handlePosition = () => {
-				const { top } = inputRef.current.getBoundingClientRect();
-				const scrollTop = document.documentElement.scrollTop;
-				const clientTop = document.documentElement.clientTop;
-				const output = Math.floor((top + scrollTop - clientTop) / 100) + 60;
-				heightRef.current = output;
-			};
-
-			handlePosition();
-			window.addEventListener("resize", handlePosition);
-			window.addEventListener("scroll", handlePosition);
+			// const handlePosition = () => {
+			// 	const { top } = inputRef.current.getBoundingClientRect();
+			// 	const scrollTop = document.documentElement.scrollTop;
+			// 	const clientTop = document.documentElement.clientTop;
+			// 	const output = Math.floor((top + scrollTop - clientTop) / 100) + 60;
+			// 	heightRef.current = output;
+			// };
+			// handlePosition();
+			// window.addEventListener("resize", handlePosition);
+			// window.addEventListener("scroll", handlePosition);
 		}
 
 		return () => {
-			window.removeEventListener("resize", handlePosition);
-			window.removeEventListener("scroll", handlePosition);
+			// window.removeEventListener("resize", handlePosition);
+			// window.removeEventListener("scroll", handlePosition);
 		};
 	}, [inputRef.current]);
 
@@ -196,7 +195,7 @@ const Work = ({ clientWidth }) => {
 															setActiveIndex(index);
 															handleChange(index);
 														}}
-														className="link"
+														className="link "
 													/>
 													<label htmlFor={`choice-${id}`}>{company}</label>
 												</div>
@@ -230,7 +229,7 @@ const Work = ({ clientWidth }) => {
 							</div>
 						</div>
 
-						<div className={`seq ${styles.container}`} ref={macRef}>
+						{/* <div className={`seq ${styles.container}`} ref={macRef}>
 							<div
 								className={`${styles.mockup} ${styles.loaded} ${styles.opened}`}
 								style={mockupStyle}>
@@ -272,6 +271,29 @@ const Work = ({ clientWidth }) => {
 									/>
 								</div>
 							</div>
+						</div> */}
+
+						<div className="pt-10  col-span-12 flex flex-col justify-center items-center min-h-full seq">
+							<Fade spy={reveal} right distance="4rem">
+								<div className="bg-gray-dark-4 self-center  rounded-2xl px-10 py-10 w-[80%] h-full mx-16">
+									<p className="font-bold mb-2 text-purple text-center text-6xl">
+										{WORK[activeIndex]?.company}
+									</p>
+									<p className="mb-1 font-semibold text-2xl">
+										{WORK[activeIndex]?.title}
+									</p>
+									<p className="italic text-xl font-thin">
+										{WORK[activeIndex]?.range}
+									</p>
+									<ul className="text-bold text-2xl mt-6 list-disc ml-2 z-30">
+										{WORK[activeIndex]?.responsibilities.map((r) => (
+											<li key={r} className="mt-2">
+												{r}
+											</li>
+										))}
+									</ul>
+								</div>
+							</Fade>
 						</div>
 					</>
 				) : (
@@ -308,12 +330,10 @@ const Work = ({ clientWidth }) => {
 											{WORK[activeIndex]?.company}
 										</p>
 										<p className="mb-1 text-lg">{WORK[activeIndex]?.title}</p>
-										<p className="italic text-sm font-thin">
-											{/* {company?.startDate} -{" "}
-                        {company?.endDate ? company?.endDate : "Present"} */}
+										<p className="italic text-lg font-thin">
 											{WORK[activeIndex]?.range}
 										</p>
-										<ul className="text-base mt-6 list-disc ml-2 z-30">
+										<ul className="text-bold text-8xl mt-6 list-disc ml-2 z-30">
 											{WORK[activeIndex]?.responsibilities.map((r) => (
 												<li key={r} className="mt-2">
 													{r}

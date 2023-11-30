@@ -48,14 +48,15 @@ const Footer = () => {
 
 						<Profiles />
 
-						<div className="seq pt-4 text-center">
-							<Button
-								href={`#${MENULINKS[4].ref}`}
-								classes="link"
-								type="secondary">
-								Let&apos;s Talk
-							</Button>
-						</div>
+						{/* <div className="seq pt-4 text-center"> */}
+						<Button
+							href={`#${MENULINKS[4].ref}`}
+							classes="link my-4"
+							// type="secondary"
+						>
+							Let&apos;s Talk
+						</Button>
+						{/* </div> */}
 						<p className="text-center text-white text-sm sm:text-base font-medium tracking-wide mt-8">
 							Developed with{" "}
 							<button onClick={handleClick} className="link heart-btn">

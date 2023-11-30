@@ -18,6 +18,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Scripts from "./components/Scripts/Scripts";
 import { displayFancyLogs } from "utils";
+import Achivements from "./components/AchiveMents/Achivements";
 
 export default function Home() {
 	gsap.registerPlugin(ScrollTrigger);
@@ -31,23 +32,23 @@ export default function Home() {
 	useEffect(() => {
 		setTimeout(() => {
 			setIsLoading(false);
-		}, 2600);
+		}, 1000);
 
 		displayFancyLogs();
 	}, []);
 
-	// useEffect(() => {
-	// 	const { innerWidth, innerHeight, orientation, history } = window;
+	useEffect(() => {
+		const { innerWidth, innerHeight, orientation, history } = window;
 
-	// 	const result =
-	// 		typeof orientation === "undefined" &&
-	// 		navigator.userAgent.indexOf("IEMobile") === -1;
-	// 	history.scrollRestoration = "manual";
+		const result =
+			typeof orientation === "undefined" &&
+			navigator.userAgent.indexOf("IEMobile") === -1;
+		history.scrollRestoration = "manual";
 
-	// 	setIsDesktop(result);
-	// 	setClientHeight(innerHeight);
-	// 	setClientWidth(innerWidth);
-	// }, [isDesktop]);
+		setIsDesktop(result);
+		setClientHeight(innerHeight);
+		setClientWidth(innerWidth);
+	}, [isDesktop]);
 
 	return (
 		<>
@@ -72,8 +73,9 @@ export default function Home() {
 							<About1 clientHeight={clientHeight} />
 							<Skills />
 							<About2 clientHeight={clientHeight} />
-							<Projects isDesktop={isDesktop} clientHeight={clientHeight} />
-							{/* <Work clientWidth={clientWidth} /> */}
+							{/* <Projects isDesktop={isDesktop} clientHeight={clientHeight} /> */}
+							<Work clientWidth={clientWidth} />
+
 							<Collaboration clientHeight={clientHeight} />
 							<div className="pt-10 sm:pt-16 bg-gray-dark-4"></div>
 							<Contact />
