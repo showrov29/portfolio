@@ -18,7 +18,6 @@ import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
 import Scripts from "../components/Scripts/Scripts";
 import { displayFancyLogs } from "utils";
-import Achivements from "../components/AchiveMents/Achivements";
 
 export default function Home() {
 	gsap.registerPlugin(ScrollTrigger);

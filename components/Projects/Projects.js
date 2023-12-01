@@ -1,21 +1,13 @@
 import { useEffect, useRef } from "react";
 import { MENULINKS, PROJECTS } from "@/constants";
-
+import { gsap, Linear } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ProjectTile from "./ProjectTile/ProjectTile";
 
 const Projects = ({ isDesktop, clientHeight }) => {
 	const targetSection = useRef(null);
 	const sectionTitle = useRef(null);
 	const containerRef = useRef(null);
-
-	const handleScroll = (e) => {
-		const container = containerRef.current;
-		if (container) {
-			container.scrollLeft += e.deltaY;
-			console.log("🚀 ~ file: Projects.js:15 ~ handleScroll ~ deltaY:", deltaY);
-			console.log(container.scrollLeft);
-		}
-	};
 
 	// useEffect(() => {
 	// 	let projectsScrollTrigger;
@@ -108,16 +100,14 @@ const Projects = ({ isDesktop, clientHeight }) => {
 					</h2>
 				</div>
 				<div
-					onWheel={handleScroll}
+					// onWheel={handleScroll}
 					ref={containerRef}
-					className={`${
-						clientHeight > 650 ? "mt-12" : "mt-8"
-					} flex project-wrapper w-fit overflow-x-auto`}>
+					className={`grid grid-flow-row gap-8 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3  overflow-hidden`}>
 					{PROJECTS.map((project, index) => (
 						<ProjectTile
-							classes={
-								index === PROJECTS.length - 1 ? "" : "mr-10 xs:mr-12 sm:mr-16"
-							}
+							// classes={
+							// 	index === PROJECTS.length - 1 ? "" : "mr-10 xs:mr-12 sm:mr-16"
+							// }
 							project={project}
 							key={project.name}
 						/>
