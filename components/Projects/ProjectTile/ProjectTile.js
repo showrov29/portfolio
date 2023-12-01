@@ -24,8 +24,20 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 	}, [projectCard]);
 
 	return (
+		// <div className=" h-60 bg-purple w-68 relative overflow-hidden">
+		// 	<img
+		// 		placeholder="blur"
+		// 		// blurDataURL={blurImage}
+		// 		src={image}
+		// 		alt={name}
+		// 		layout="cover"
+		// 		// height={"full"}
+		// 		// width={"full"}
+		// 		className={`h-[90%] w-[90%] ${styles.projectImage} z-0`}
+		// 	/>
+		// </div>
 		<a
-			href={url}
+			// href={url}
 			className={`overflow-hidden rounded-3xl ${additionalClasses}`}
 			ref={projectCard}
 			target="_blank"
@@ -70,8 +82,8 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 				</h1>
 				<div
 					className={`
-            ${styles.techIcons} w-1/2 h-full absolute left-24 top-0 sm:flex items-center hidden
-          `}>
+		    ${styles.techIcons} w-1/2 h-full absolute left-24 top-0 sm:flex items-center hidden
+		  `}>
 					<div className="flex flex-col pb-8">
 						{project.tech.map((el, i) => (
 							<img
