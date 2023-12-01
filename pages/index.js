@@ -73,7 +73,7 @@ export default function Home() {
 							<About1 clientHeight={clientHeight} />
 							<Skills />
 							<About2 clientHeight={clientHeight} />
-							{/* <Projects isDesktop={isDesktop} clientHeight={clientHeight} /> */}
+							<Projects isDesktop={isDesktop} clientHeight={clientHeight} />
 							<Work clientWidth={clientWidth} />
 
 							<Collaboration clientHeight={clientHeight} />

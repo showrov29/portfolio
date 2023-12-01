@@ -1,82 +1,89 @@
 import { useEffect, useRef } from "react";
 import { MENULINKS, PROJECTS } from "@/constants";
-import { gsap, Linear } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 import ProjectTile from "./ProjectTile/ProjectTile";
 
 const Projects = ({ isDesktop, clientHeight }) => {
 	const targetSection = useRef(null);
 	const sectionTitle = useRef(null);
+	const containerRef = useRef(null);
 
-	useEffect(() => {
-		let projectsScrollTrigger;
-		let projectsTimeline;
-
-		if (isDesktop) {
-			[projectsTimeline, projectsScrollTrigger] = getProjectsSt();
-		} else {
-			const projectWrapper =
-				targetSection.current.querySelector(".project-wrapper");
-			projectWrapper.style.width = "calc(100vw - 1rem)";
-			projectWrapper.style.overflowX = "scroll";
+	const handleScroll = (e) => {
+		const container = containerRef.current;
+		if (container) {
+			container.scrollLeft += e.deltaY;
+			console.log("🚀 ~ file: Projects.js:15 ~ handleScroll ~ deltaY:", deltaY);
+			console.log(container.scrollLeft);
 		}
-
-		const [revealTimeline, revealScrollTrigger] = getRevealSt();
-
-		return () => {
-			projectsScrollTrigger && projectsScrollTrigger.kill();
-			projectsTimeline && projectsTimeline.kill();
-			revealScrollTrigger && revealScrollTrigger.kill();
-			revealTimeline && revealTimeline.progress(1);
-		};
-	}, [targetSection, sectionTitle, isDesktop]);
-
-	const getRevealSt = () => {
-		const revealTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
-		revealTl.from(
-			targetSection.current.querySelectorAll(".seq"),
-			{ opacity: 0, duration: 0.5, stagger: 0.5 },
-			"<"
-		);
-
-		const scrollTrigger = ScrollTrigger.create({
-			trigger: targetSection.current,
-			start: "top bottom",
-			end: "bottom bottom",
-			scrub: 0,
-			animation: revealTl,
-		});
-
-		return [revealTl, scrollTrigger];
 	};
 
-	const getProjectsSt = () => {
-		const timeline = gsap.timeline({ defaults: { ease: Linear.easeNone } });
-		const sidePadding =
-			document.body.clientWidth -
-			targetSection.current.querySelector(".inner-container").clientWidth;
-		const elementWidth =
-			sidePadding +
-			targetSection.current.querySelector(".project-wrapper").clientWidth;
-		targetSection.current.style.width = `${elementWidth}px`;
-		const width = window.innerWidth - elementWidth;
-		const duration = `${(elementWidth / window.innerHeight) * 100}%`;
-		timeline
-			.to(targetSection.current, { x: width })
-			.to(sectionTitle.current, { x: -width }, "<");
+	// useEffect(() => {
+	// 	let projectsScrollTrigger;
+	// 	let projectsTimeline;
 
-		const scrollTrigger = ScrollTrigger.create({
-			trigger: targetSection.current,
-			start: "top top",
-			end: duration,
-			scrub: 0,
-			pin: true,
-			animation: timeline,
-			pinSpacing: "margin",
-		});
+	// 	if (isDesktop) {
+	// 		[projectsTimeline, projectsScrollTrigger] = getProjectsSt();
+	// 	} else {
+	// 		const projectWrapper =
+	// 			targetSection.current.querySelector(".project-wrapper");
+	// 		projectWrapper.style.width = "calc(100vw - 1rem)";
+	// 		projectWrapper.style.overflowX = "scroll";
+	// 	}
 
-		return [timeline, scrollTrigger];
-	};
+	// 	const [revealTimeline, revealScrollTrigger] = getRevealSt();
+
+	// 	return () => {
+	// 		projectsScrollTrigger && projectsScrollTrigger.kill();
+	// 		projectsTimeline && projectsTimeline.kill();
+	// 		revealScrollTrigger && revealScrollTrigger.kill();
+	// 		revealTimeline && revealTimeline.progress(1);
+	// 	};
+	// }, [targetSection, sectionTitle, isDesktop]);
+
+	// const getRevealSt = () => {
+	// 	const revealTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
+	// 	revealTl.from(
+	// 		targetSection.current.querySelectorAll(".seq"),
+	// 		{ opacity: 0, duration: 0.5, stagger: 0.5 },
+	// 		"<"
+	// 	);
+	// 	const scrollTrigger = ScrollTrigger.create({
+	// 		trigger: targetSection.current,
+	// 		start: "top bottom",
+	// 		end: "bottom bottom",
+	// 		scrub: 0,
+	// 		animation: revealTl,
+	// 	});
+	// 	return [revealTl, scrollTrigger];
+	// };
+
+	// const getProjectsSt = () => {
+	// 	const timeline = gsap.timeline({ defaults: { ease: Linear.easeNone } });
+	// 	const sidePadding =
+	// 		document.body.clientWidth -
+	// 		targetSection.current.querySelector(".inner-container").clientWidth;
+	// 	const elementWidth =
+	// 		sidePadding +
+	// 		targetSection.current.querySelector(".project-wrapper").clientWidth;
+	// 	targetSection.current.style.width = `${elementWidth}px`;
+	// 	const width = window.innerWidth - elementWidth;
+	// 	const duration = `${(elementWidth / window.innerHeight) * 100}%`;
+	// 	timeline
+	// 		.to(targetSection.current, { x: width })
+	// 		.to(sectionTitle.current, { x: -width }, "<");
+
+	// 	const scrollTrigger = ScrollTrigger.create({
+	// 		trigger: targetSection.current,
+	// 		start: "top top",
+	// 		end: duration,
+	// 		scrub: 0,
+	// 		pin: true,
+	// 		animation: timeline,
+	// 		pinSpacing: "margin",
+	// 	});
+
+	// 	return [timeline, scrollTrigger];
+	// };
 
 	return (
 		<section
@@ -101,9 +108,11 @@ const Projects = ({ isDesktop, clientHeight }) => {
 					</h2>
 				</div>
 				<div
+					onWheel={handleScroll}
+					ref={containerRef}
 					className={`${
 						clientHeight > 650 ? "mt-12" : "mt-8"
-					} flex project-wrapper w-fit seq`}>
+					} flex project-wrapper w-fit overflow-x-auto`}>
 					{PROJECTS.map((project, index) => (
 						<ProjectTile
 							classes={
@@ -115,11 +124,11 @@ const Projects = ({ isDesktop, clientHeight }) => {
 					))}
 				</div>
 			</div>
-			<style jsx global>{`
+			{/* <style jsx global>{`
 				.project-wrapper::-webkit-scrollbar {
 					display: none;
 				}
-			`}</style>
+			`}</style> */}
 		</section>
 	);
 };
