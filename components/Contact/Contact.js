@@ -46,7 +46,7 @@ const Contact = () => {
 	const [mailerResponse, setMailerResponse] = useState("not initiated");
 	const [isSending, setIsSending] = useState(false);
 	const buttonEl = useRef(null);
-
+	const audioRef = useRef(null);
 	const handleChange = ({ target }) => {
 		const { id, value } = target;
 		value.length === 0 ? setIsSending(false) : setIsSending(true);
@@ -81,6 +81,10 @@ const Contact = () => {
 		}
 
 		setIsSending(true);
+		console.log("Sending email");
+
+		audioRef.current.playbackRate = 0.5;
+		audioRef.current.play();
 		mail({ name, email, message })
 			.then((res) => {
 				if (res.status === 200) {
@@ -374,6 +378,7 @@ const Contact = () => {
 					transform: translateY(-100%);
 				}
 			`}</style>
+			<audio ref={audioRef} src="/sounds/email.mp3" preload="auto" />
 		</section>
 	);
 };
