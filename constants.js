@@ -168,7 +168,7 @@ export const PROJECTS = [
 export const WORK = [
 	{
 		id: 1,
-		company: "Dukaan",
+		company: "Techdojo Ltd",
 		title: "Frontend Developer",
 		location: "Bangalore, Karnataka",
 		range: "December - Current",
