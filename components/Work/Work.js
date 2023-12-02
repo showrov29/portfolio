@@ -191,7 +191,6 @@ const Work = ({ clientWidth }) => {
 														ref={inputRef}
 														checked={checked[index]}
 														onChange={() => {
-															console.log(index);
 															setActiveIndex(index);
 															handleChange(index);
 														}}

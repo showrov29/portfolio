@@ -87,7 +87,7 @@ export const SKILLS = {
 		"javascript",
 		"typescript",
 		"python",
-		"c#",
+
 		"c++",
 
 		// "cpp",
@@ -105,14 +105,15 @@ export const SKILLS = {
 		"redux",
 		"nextjs",
 		"nest js",
-		"asp.net",
+
+		"openAi",
 		"tailwindcss",
 		"styledcomponents",
 		"antdesign",
 		"chakra-ui",
 	],
-	databases: ["mysql", "mongodb", "postgresql"],
-	other: ["git", "vscode", "postman", "netlify", "vercel"],
+	databases: ["mysql", "mongodb", "postgresql", "sqlite"],
+	other: ["git", "postman"],
 };
 
 export const PROJECTS = [

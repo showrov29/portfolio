@@ -81,7 +81,6 @@ const Contact = () => {
 		}
 
 		setIsSending(true);
-		console.log("Sending email");
 
 		audioRef.current.playbackRate = 0.5;
 		audioRef.current.play();
