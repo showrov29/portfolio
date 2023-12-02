@@ -81,14 +81,16 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 					style={{ transform: "translateZ(3rem)" }}>
 					{name}
 				</h1>
-				{/* <div
+				<div
 					className={`
-		    ${styles.techIcons} w-1/2 h-full absolute left-24 top-0 sm:flex items-center hidden
+		    ${styles.techIcons} w-1/2 h-full absolute top-0 sm:flex items-center hidden
 		  `}>
 					<div className="flex flex-col pb-8">
 						{project.tech.map((el, i) => (
 							<img
-								className={`${i % 2 === 0 && "ml-16"} mb-4`}
+								className={`${
+									i % 2 === 0 && "ml-16"
+								} mb-4 hover:scale-125 duration-500`}
 								src={`/projects/tech/${el}.svg`}
 								alt={el}
 								height={45}
@@ -97,7 +99,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 							/>
 						))}
 					</div>
-				</div> */}
+				</div>
 				<h2
 					className="text-lg z-10 tracking-wide font-medium text-white transform-gpu"
 					style={{ transform: "translateZ(0.8rem)" }}>
