@@ -38,7 +38,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 		// </div>
 		<a
 			// href={url}
-			className={`overflow-hidden rounded-3xl ${additionalClasses}`}
+			className={`overflow-hidden  bg-purple rounded-3xl ${additionalClasses}`}
 			ref={projectCard}
 			target="_blank"
 			rel="noreferrer"
@@ -46,6 +46,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 				maxWidth: isDesktop ? "calc(100vw - 2rem)" : "calc(100vw - 4rem)",
 				flex: "1 0 auto",
 				WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+				background: `linear-gradient(90deg, ${gradient[0]} 0%, ${gradient[1]} 100%)`,
 			}}>
 			<div
 				className={`h-[25rem] w-[38rem] bg-black ${styles.ProjectTile} rounded-3xl relative p-6 flex flex-col justify-between max-w-full`}
@@ -80,7 +81,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 					style={{ transform: "translateZ(3rem)" }}>
 					{name}
 				</h1>
-				<div
+				{/* <div
 					className={`
 		    ${styles.techIcons} w-1/2 h-full absolute left-24 top-0 sm:flex items-center hidden
 		  `}>
@@ -96,7 +97,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 							/>
 						))}
 					</div>
-				</div>
+				</div> */}
 				<h2
 					className="text-lg z-10 tracking-wide font-medium text-white transform-gpu"
 					style={{ transform: "translateZ(0.8rem)" }}>

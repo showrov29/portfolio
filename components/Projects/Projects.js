@@ -102,7 +102,7 @@ const Projects = ({ isDesktop, clientHeight }) => {
 				<div
 					// onWheel={handleScroll}
 					ref={containerRef}
-					className={`grid grid-flow-row gap-8 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3  overflow-hidden`}>
+					className={`grid grid-flow-row gap-8 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols3  overflow-hidden`}>
 					{PROJECTS.map((project, index) => (
 						<ProjectTile
 							// classes={
