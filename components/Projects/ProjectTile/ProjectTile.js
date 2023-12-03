@@ -83,7 +83,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 				</h1>
 				<div
 					className={`
-		    ${styles.techIcons} w-1/2 h-full absolute top-0 sm:flex items-center hidden
+		    ${styles.techIcons} w-1/2 h-full absolute top-0 sm:flex items-center 
 		  `}>
 					<div className="flex flex-col pb-8">
 						{project.tech?.map((el, i) => (
