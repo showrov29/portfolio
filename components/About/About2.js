@@ -6,24 +6,24 @@ const About2 = ({ clientHeight }) => {
 	const quoteRef = useRef(null);
 	const targetSection = useRef(null);
 
-	useEffect(() => {
-		const timeline = gsap.timeline({
-			defaults: { ease: Linear.easeNone, duration: 0.1 },
-		});
-		timeline
-			.from(quoteRef.current, { opacity: 0, duration: 2 })
-			.to(quoteRef.current.querySelector(".about-3"), {
-				backgroundPositionX: "100%",
-				duration: 1,
-			});
-		ScrollTrigger.create({
-			trigger: targetSection.current,
-			start: "center bottom",
-			end: "center center",
-			scrub: 0,
-			animation: timeline,
-		});
-	}, [quoteRef, targetSection]);
+	// useEffect(() => {
+	// 	const timeline = gsap.timeline({
+	// 		defaults: { ease: Linear.easeNone, duration: 0.1 },
+	// 	});
+	// 	timeline
+	// 		.from(quoteRef.current, { opacity: 0, duration: 2 })
+	// 		.to(quoteRef.current.querySelector(".about-3"), {
+	// 			backgroundPositionX: "100%",
+	// 			duration: 1,
+	// 		});
+	// 	ScrollTrigger.create({
+	// 		trigger: targetSection.current,
+	// 		start: "center bottom",
+	// 		end: "center center",
+	// 		scrub: 0,
+	// 		animation: timeline,
+	// 	});
+	// }, [quoteRef, targetSection]);
 
 	return (
 		<section className="w-full relative select-none" ref={targetSection}>
@@ -34,8 +34,9 @@ const About2 = ({ clientHeight }) => {
 				<h1
 					ref={quoteRef}
 					className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center">
-					I have a <span className="about-3 font-bold">strong</span> obsession
-					for attention to detail.
+					I have a <span className=" text-purple font-bold">strong</span>{" "}
+					obsession for{" "}
+					<span className=" text-purple font-bold">Problem Solving</span>.
 				</h1>
 			</div>
 			<style jsx global>{`
