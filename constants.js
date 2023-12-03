@@ -47,9 +47,9 @@ export const MENULINKS = [
 ];
 
 export const TYPED_STRINGS = [
-	"A pragmatic Frontend Developer",
-	"I build things for the web",
-	"I create aesthetic and modern apps",
+	"A pragmatic fullstack and mobile developer with a passion solving problems",
+	"I build things for the web and mobile",
+	"I create aesthetic and modern apps that solve problems",
 ];
 
 export const SOCIAL_LINKS = [
@@ -117,33 +117,33 @@ export const SKILLS = {
 };
 
 export const PROJECTS = [
-	// {
-	//   name: "Shotime",
-	//   image: "",
-	//   blurImage: "",
-	//   description:
-	//     "Developed with complete E-commerce functionality and User Authentication 🛍️",
-	//   gradient: ["#FFCF1B", "#FF881B"],
-	//   url: "https://shubh73-shotime.vercel.app/",
-	//   tech: ["react", "tailwindcss", "redux", "mongodb", "stripe"],
-	// },
 	{
-		name: "Airbnb",
+		name: "Track Money",
+		image: "",
+		blurImage: "",
+		description:
+			"Developed an mobile app to keep track of your money and expenses",
+		gradient: ["#FFCF1B", "#FF881B"],
+		url: "https://github.com/showrov29/expenseTrackMobile",
+		tech: ["react", "tailwindcss", "redux", "mongodb", "stripe"],
+	},
+	{
+		name: "Image Gallery",
 		image: "/projects/airbnb.webp",
 		blurImage: "/projects/blur/airbnb-blur.webp",
-		description: "Airbnb UI clone using NextJS + Tailwind CSS 🛏️",
+		description: "A simple image gallery app using React js 📸",
 		gradient: ["#F14658", "#DC2537"],
-		url: "https://shubh73-airbnb.vercel.app/",
+		url: "https://github.com/showrov29/ImageGallery",
 		tech: ["react", "nextjs", "tailwindcss", "mapbox"],
 	},
 	{
-		name: "Medium",
+		name: "Virtual You",
 		image: "/projects/medium.webp",
 		blurImage: "/projects/blur/medium-blur.webp",
-		description: "Medium UI clone using NextJS + Tailwind CSS ✍🏻",
+		description: "A virtual chat assistent can talk with you 🤖",
 		gradient: ["#FFA62E", "#EA4D2C"],
-		url: "https://shubh73-medium.vercel.app/",
-		tech: ["typescript", "react", "nextjs", "tailwindcss", "sanity.io"],
+		url: "https://github.com/showrov29/virtual-you",
+		tech: ["javascript", "azure", "nextjs", "tailwindcss", "openAi"],
 	},
 	{
 		name: "Inshorts",
@@ -156,13 +156,54 @@ export const PROJECTS = [
 		tech: ["react", "chakra-ui", "alan"],
 	},
 	{
-		name: "Tesla",
+		name: "Coin Bazar",
 		image: "/projects/tesla.webp",
 		blurImage: "/projects/blur/tesla-blur.webp",
-		description: "A Tesla React Native App 🏎️",
+		description:
+			"An E-commerce website for buying and selling antique coins 💰",
 		gradient: ["#142D46", "#2E4964"],
-		url: "https://github.com/shubh73/tesla",
-		tech: ["react"],
+		url: "https://github.com/showrov29/Coin-Bazar-Frontend",
+		tech: ["react", "node", "daisy-ui", "mongodb", "express", "stripe"],
+	},
+	{
+		name: "Noticify",
+		image: "/projects/tesla.webp",
+		blurImage: "/projects/blur/tesla-blur.webp",
+		description:
+			"A telegram bot that can send you notification from my university website and can chat with you like chatGPT 🤖",
+		gradient: ["#142D46", "#2E4964"],
+		url: "https://github.com/showrov29/NoticeBot",
+		tech: ["react", "node", "daisy-ui", "mongodb", "express", "stripe"],
+	},
+	{
+		name: "Exam Prep",
+		image: "/projects/tesla.webp",
+		blurImage: "/projects/blur/tesla-blur.webp",
+		description:
+			"A cross platform mobile app  to take exam and prepare for exam 📱",
+		gradient: ["#142D46", "#2E4964"],
+		url: "https://github.com/showrov29/ReactNativeAssignment",
+		tech: ["react-native", "sqlite"],
+	},
+	{
+		name: "Text Charm",
+		image: "/projects/tesla.webp",
+		blurImage: "/projects/blur/tesla-blur.webp",
+		description:
+			"A telegram bot can read doc file and send you the text from the file and perform operation like chatGpt from the file, generate image, and dowload music from youtube 🤖",
+		gradient: ["#142D46", "#2E4964"],
+		url: "https://github.com/showrov29/Telegram_bot",
+		tech: ["node", "mongodb", "express", "telegram", "openAi"],
+	},
+	{
+		name: "Expense Track Web",
+		image: "/projects/tesla.webp",
+		blurImage: "/projects/blur/tesla-blur.webp",
+		description:
+			"A web app to keep track of your money and expenses and forcast for upcomming 7 days 💰",
+		gradient: ["#142D46", "#2E4964"],
+		url: "https://github.com/showrov29/Telegram_bot",
+		tech: ["node", "mongodb", "express", "telegram", "openAi"],
 	},
 ];
 

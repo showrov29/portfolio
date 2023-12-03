@@ -37,7 +37,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 		// 	/>
 		// </div>
 		<a
-			// href={url}
+			href={url}
 			className={`overflow-hidden  bg-purple rounded-3xl ${additionalClasses}`}
 			ref={projectCard}
 			target="_blank"
@@ -59,7 +59,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 					className="absolute w-full h-full top-0 left-0 object-cover opacity-30"
 				/>
 				<Image
-					placeholder="blur"
+					// placeholder="blur"
 					blurDataURL={blurImage}
 					src={image}
 					alt={name}
@@ -86,7 +86,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 		    ${styles.techIcons} w-1/2 h-full absolute top-0 sm:flex items-center hidden
 		  `}>
 					<div className="flex flex-col pb-8">
-						{project.tech.map((el, i) => (
+						{project.tech?.map((el, i) => (
 							<img
 								className={`${
 									i % 2 === 0 && "ml-16"
