@@ -164,71 +164,70 @@ const Work = ({ clientWidth }) => {
 					</div>
 				</div>
 
-				{clientWidth > 767 ? (
-					<>
-						<div className={`wrapper seq ${isActive ? "active" : ""}`}>
-							<div className="page overflow-hidden" ref={companyCard}>
-								<p className="text-[25px] font-semibold pb-10">
-									Choose a compan
-									<span className="relative">
-										y
-										<span className="absolute h-3 w-3">
-											<span className="animate-ping absolute bottom-[2px] right-[2px] inline-flex h-3 w-3 rounded-full bg-purple opacity-75"></span>
-											<span className="relative flex justify-end rounded-full h-2 w-2 bg-purple"></span>
-										</span>
+				<>
+					<div className={`wrapper seq ${isActive ? "active" : ""}`}>
+						<div className="page overflow-hidden" ref={companyCard}>
+							<p className="text-[25px] font-semibold pb-10">
+								Choose a compan
+								<span className="relative">
+									y
+									<span className="absolute h-3 w-3">
+										<span className="animate-ping absolute bottom-[2px] right-[2px] inline-flex h-3 w-3 rounded-full bg-purple opacity-75"></span>
+										<span className="relative flex justify-end rounded-full h-2 w-2 bg-purple"></span>
 									</span>
-								</p>
-								<div className="radio-wrapper">
-									{WORK &&
-										WORK.map((job, index) => {
-											const { company, id } = job;
-											return (
-												<div className="choice-container" key={company}>
-													<input
-														id={`choice-${id}`}
-														type="checkbox"
-														name={company}
-														ref={inputRef}
-														checked={checked[index]}
-														onChange={() => {
-															setActiveIndex(index);
-															handleChange(index);
-														}}
-														className="link "
-													/>
-													<label htmlFor={`choice-${id}`}>{company}</label>
-												</div>
-											);
-										})}
-								</div>
-							</div>
-							<div className="gun" style={gunStyle}>
-								<div className="gun__main">
-									<div className="gun__handle">
-										<div className="bottom"></div>
-										<div className="middle"></div>
-										<div className="top">
-											<div className="line line-short"></div>
-											<div className="line line-long"></div>
-											<div className="line line-long"></div>
-											<div className="line line-short"></div>
-											<div className="line line-short"></div>
-										</div>
-									</div>
-									<div className="gun__accent-2"></div>
-									<div className="gun__accent-1"></div>
-									<div className="gun__yellow">
-										<div className="line"></div>
-									</div>
-									<div className="gun__trigger"></div>
-									<div className="gun__accent-3"></div>
-									<div className="gun__accent-4"></div>
-								</div>
-								<div className="bullet"></div>
+								</span>
+							</p>
+							<div className="radio-wrapper">
+								{WORK &&
+									WORK.map((job, index) => {
+										const { company, id } = job;
+										return (
+											<div className="choice-container" key={company}>
+												<input
+													id={`choice-${id}`}
+													type="checkbox"
+													name={company}
+													ref={inputRef}
+													checked={checked[index]}
+													onChange={() => {
+														setActiveIndex(index);
+														handleChange(index);
+													}}
+													className="link "
+												/>
+												<label htmlFor={`choice-${id}`}>{company}</label>
+											</div>
+										);
+									})}
 							</div>
 						</div>
+						<div className="gun" style={gunStyle}>
+							<div className="gun__main">
+								<div className="gun__handle">
+									<div className="bottom"></div>
+									<div className="middle"></div>
+									<div className="top">
+										<div className="line line-short"></div>
+										<div className="line line-long"></div>
+										<div className="line line-long"></div>
+										<div className="line line-short"></div>
+										<div className="line line-short"></div>
+									</div>
+								</div>
+								<div className="gun__accent-2"></div>
+								<div className="gun__accent-1"></div>
+								<div className="gun__yellow">
+									<div className="line"></div>
+								</div>
+								<div className="gun__trigger"></div>
+								<div className="gun__accent-3"></div>
+								<div className="gun__accent-4"></div>
+							</div>
+							<div className="bullet"></div>
+						</div>
+					</div>
 
-						{/* <div className={`seq ${styles.container}`} ref={macRef}>
+					{/* <div className={`seq ${styles.container}`} ref={macRef}>
 							<div
 								className={`${styles.mockup} ${styles.loaded} ${styles.opened}`}
 								style={mockupStyle}>
@@ -272,19 +271,67 @@ const Work = ({ clientWidth }) => {
 							</div>
 						</div> */}
 
-						<div className="pt-10  col-span-12 flex flex-col justify-center items-center min-h-full seq">
+					<div className="pt-10  col-span-12 flex flex-col justify-center items-center min-h-full seq">
+						<Fade spy={reveal} right distance="4rem">
+							<div className="bg-gray-dark-4 self-center  rounded-2xl px-10 py-10 w-[80%] h-full mx-16">
+								<p className="font-bold mb-2 text-purple text-center text-6xl">
+									{WORK[activeIndex]?.company}
+								</p>
+								<p className="mb-1 font-semibold text-2xl">
+									{WORK[activeIndex]?.title}
+								</p>
+								<p className="italic text-xl font-thin">
+									{WORK[activeIndex]?.range}
+								</p>
+								<ul className="text-bold text-2xl mt-6 list-disc ml-2 z-30">
+									{WORK[activeIndex]?.responsibilities.map((r) => (
+										<li key={r} className="mt-2">
+											{r}
+										</li>
+									))}
+								</ul>
+							</div>
+						</Fade>
+					</div>
+				</>
+
+				{/* <>
+					<div className="flex flex-col items-center">
+						<div className="flex seq">
+							<div className="py-5">
+								{WORK.map((job, index) => {
+									const { company } = job;
+									return (
+										<div key={company}>
+											<Button
+												key={company}
+												classes={`text-lg mb-4 ${
+													index === activeIndex && "primary__button__active"
+												}`}
+												href={`#${company.toLowerCase()}`}
+												type="primary"
+												onClick={() => {
+													setActiveIndex(index);
+													setReveal((prev) => prev + 1);
+												}}>
+												{company}
+											</Button>
+										</div>
+									);
+								})}
+							</div>
+						</div>
+						<div className="pt-10 col-span-12 flex flex-col justify-center items-center min-h-full seq">
 							<Fade spy={reveal} right distance="4rem">
-								<div className="bg-gray-dark-4 self-center  rounded-2xl px-10 py-10 w-[80%] h-full mx-16">
-									<p className="font-bold mb-2 text-purple text-center text-6xl">
+								<div className="bg-gray-dark-4 rounded-2xl px-10 py-10 w-72 h-full mx-16">
+									<p className="font-bold mb-2 text-2xl">
 										{WORK[activeIndex]?.company}
 									</p>
-									<p className="mb-1 font-semibold text-2xl">
-										{WORK[activeIndex]?.title}
-									</p>
-									<p className="italic text-xl font-thin">
+									<p className="mb-1 text-lg">{WORK[activeIndex]?.title}</p>
+									<p className="italic text-lg font-thin">
 										{WORK[activeIndex]?.range}
 									</p>
-									<ul className="text-bold text-2xl mt-6 list-disc ml-2 z-30">
+									<ul className="text-bold text-8xl mt-6 list-disc ml-2 z-30">
 										{WORK[activeIndex]?.responsibilities.map((r) => (
 											<li key={r} className="mt-2">
 												{r}
@@ -294,57 +341,8 @@ const Work = ({ clientWidth }) => {
 								</div>
 							</Fade>
 						</div>
-					</>
-				) : (
-					<>
-						<div className="flex flex-col items-center">
-							<div className="flex seq">
-								<div className="py-5">
-									{WORK.map((job, index) => {
-										const { company } = job;
-										return (
-											<div key={company}>
-												<Button
-													key={company}
-													classes={`text-lg mb-4 ${
-														index === activeIndex && "primary__button__active"
-													}`}
-													href={`#${company.toLowerCase()}`}
-													type="primary"
-													onClick={() => {
-														setActiveIndex(index);
-														setReveal((prev) => prev + 1);
-													}}>
-													{company}
-												</Button>
-											</div>
-										);
-									})}
-								</div>
-							</div>
-							<div className="pt-10 col-span-12 flex flex-col justify-center items-center min-h-full seq">
-								<Fade spy={reveal} right distance="4rem">
-									<div className="bg-gray-dark-4 rounded-2xl px-10 py-10 w-72 h-full mx-16">
-										<p className="font-bold mb-2 text-2xl">
-											{WORK[activeIndex]?.company}
-										</p>
-										<p className="mb-1 text-lg">{WORK[activeIndex]?.title}</p>
-										<p className="italic text-lg font-thin">
-											{WORK[activeIndex]?.range}
-										</p>
-										<ul className="text-bold text-8xl mt-6 list-disc ml-2 z-30">
-											{WORK[activeIndex]?.responsibilities.map((r) => (
-												<li key={r} className="mt-2">
-													{r}
-												</li>
-											))}
-										</ul>
-									</div>
-								</Fade>
-							</div>
-						</div>
-					</>
-				)}
+					</div>
+				</> */}
 			</div>
 		</section>
 	);
