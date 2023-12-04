@@ -11,6 +11,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 		additionalClasses = classes;
 	}
 
+	const Portarait = ["Image Gallery", "Virtual You", "Coin Bazar"];
 	const options = {
 		max: 10,
 		speed: 400,
@@ -59,12 +60,16 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 					className="absolute w-full h-full top-0 left-0 object-cover opacity-30"
 				/>
 				<Image
-					// placeholder="blur"
+					placeholder="blur"
 					blurDataURL={blurImage}
 					src={image}
 					alt={name}
 					layout="fill"
-					className={`${styles.projectImage} z-0`}
+					className={`${
+						Portarait.includes(name)
+							? styles.portraitImage
+							: styles.projectImage
+					} z-0`}
 				/>
 				<div
 					className="absolute top-0 left-0 w-full h-20"
@@ -90,7 +95,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 							<img
 								className={`${
 									i % 2 === 0 && "ml-16"
-								} mb-4 hover:scale-125 duration-500`}
+								} mb-6 hover:scale-125 duration-500`}
 								src={`/projects/tech/${el}.svg`}
 								alt={el}
 								height={45}
@@ -100,11 +105,12 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 						))}
 					</div>
 				</div>
-				<h2
-					className="text-lg z-10 tracking-wide font-medium text-white transform-gpu"
+
+				<div
+					className="text-lg z-10  tracking-wide font-medium text-white transform-gpu"
 					style={{ transform: "translateZ(0.8rem)" }}>
 					{description}
-				</h2>
+				</div>
 			</div>
 		</a>
 	);
