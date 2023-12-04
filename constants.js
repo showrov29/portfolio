@@ -136,8 +136,8 @@ export const PROJECTS = [
 	},
 	{
 		name: "Virtual You",
-		image: "/projects/medium.webp",
-		blurImage: "/projects/blur/medium-blur.webp",
+		image: "/projects/VirtualYou.png",
+		blurImage: "/projects/blur/VirtualYou.png",
 		description: "A virtual chat assistent can talk with you 🤖",
 		gradient: ["#FFA62E", "#EA4D2C"],
 		url: "https://github.com/showrov29/virtual-you",
@@ -222,7 +222,7 @@ export const WORK = [
 			"Successfully rolled out an error-logging and bug reporting system that cut user-reported bugs by 30%.",
 		],
 		url: "https://www.amirl.org",
-		video: "/work/aviate.mp4",
+		// video: "/work/aviate.mp4",
 	},
 ];
 
