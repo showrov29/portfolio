@@ -145,7 +145,7 @@ export const PROJECTS = [
 	},
 	{
 		name: "Coin Bazar",
-		image: "/projects/tesla.webp",
+		image: "/projects/coinBazar.png",
 		blurImage: "/projects/blur/tesla-blur.webp",
 		description:
 			"An E-commerce website for buying and selling antique coins 💰",
@@ -183,16 +183,16 @@ export const PROJECTS = [
 		url: "https://github.com/showrov29/Telegram_bot",
 		tech: ["nodejs", "mongodb", "express", "telegram", "openAi"],
 	},
-	{
-		name: "Expense Track Web",
-		image: "/projects/tesla.webp",
-		blurImage: "/projects/blur/tesla-blur.webp",
-		description:
-			"A web app to keep track of your money and expenses and forcast for upcomming 7 days 💰",
-		gradient: ["#142D46", "#2E4964"],
-		url: "https://github.com/showrov29/Telegram_bot",
-		tech: ["nest js", "mongodb", "nextjs", "tailwindcss"],
-	},
+	// {
+	// 	name: "Expense Track Web",
+	// 	image: "/projects/tesla.webp",
+	// 	blurImage: "/projects/blur/tesla-blur.webp",
+	// 	description:
+	// 		"A web app to keep track of your money and expenses and forcast for upcomming 7 days 💰",
+	// 	gradient: ["#142D46", "#2E4964"],
+	// 	url: "https://github.com/showrov29/Telegram_bot",
+	// 	tech: ["nest js", "mongodb", "nextjs", "tailwindcss"],
+	// },
 ];
 
 export const WORK = [
@@ -203,9 +203,12 @@ export const WORK = [
 		location: "Uttara, Dhaka, Bangladesh",
 		range: "July, 2023 - Current",
 		responsibilities: [
-			"Led creation of a captivating cross-platform e-commerce solution.",
-			"Enhanced UX with gamification and personalized push notifications ensuring an ever-improving shopping journey.",
-			"The app boasts a DAU base of 13k and an extensive MAU count of 170k.",
+			"Developed Motocarma, a lifestyle driven car buying with car choice basec on buyer self-image using AI/Machine learning on seller inventory and a broad understanding of cars integrated into any online marketing site to reveal customer goals for purchase satisfaction",
+			"Developed Virtual-You, a virtual voice avatar with 3d face  that can talk with you and let you practice dificult conversations befeore you have them in real life",
+			"Developed WhatsApp bot for a coaching center to condact online exam and send notification to the students",
+			"Developed cross platform mobile application using React Native for maintaing daily or of a horsefarm",
+			"Developed a web application for exam preparation for lawyers",
+			"Research and find solutions to various problems that are not in the markert",
 		],
 		url: "https://www.tech-dojo.org",
 		// video: "/work/dukaan.mp4",
@@ -213,13 +216,13 @@ export const WORK = [
 	{
 		id: 2,
 		company: "AMIR Lab",
-		title: "Web Developer (Volunteer)",
+		title: "Web Developer (Part-time)",
 		location: "Dhaka, Bangladesh",
 		range: "November, 2023 - Current",
 		responsibilities: [
-			"Built their flagship product Q-Rate, a voice-based applicant screening platform.",
-			"Developed pixel-perfect responsive web applications achieving daily traffic of 1000-2000 users.",
-			"Successfully rolled out an error-logging and bug reporting system that cut user-reported bugs by 30%.",
+			"Develop Frontend of the organiazation and maintain and update the website",
+			"Lead a small team of freshers devloper and intens",
+			"Write documentation for the projects",
 		],
 		url: "https://www.amirl.org",
 		// video: "/work/aviate.mp4",
