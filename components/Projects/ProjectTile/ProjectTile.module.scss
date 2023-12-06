@@ -10,11 +10,27 @@
 .projectImage {
 	@apply absolute right-0 rounded-xl;
 
-	width: 11rem !important;
+	width: 12rem !important;
 	transform: rotate(-22.5deg);
 	height: unset !important;
 	min-width: unset !important;
 	max-height: unset !important;
+	object-fit: contain !important;
+	left: unset !important;
+
+	right: 2rem !important;
+	bottom: unset !important;
+}
+.portraitImage {
+	@apply absolute right-0 rounded-xl;
+
+	padding-top: 7ch !important;
+	padding-left: 7ch !important;
+	width: 22rem !important;
+	transform: rotate(-22.5deg);
+	height: 19rem !important;
+	// min-width: 19rem !important;
+	// max-height: unset !important;
 	object-fit: contain !important;
 	left: unset !important;
 

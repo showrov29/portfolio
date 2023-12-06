@@ -11,6 +11,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 		additionalClasses = classes;
 	}
 
+	const Portarait = ["Image Gallery", "Virtual You", "Coin Bazar"];
 	const options = {
 		max: 10,
 		speed: 400,
@@ -37,7 +38,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 		// 	/>
 		// </div>
 		<a
-			// href={url}
+			href={url}
 			className={`overflow-hidden  bg-purple rounded-3xl ${additionalClasses}`}
 			ref={projectCard}
 			target="_blank"
@@ -64,7 +65,11 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 					src={image}
 					alt={name}
 					layout="fill"
-					className={`${styles.projectImage} z-0`}
+					className={`${
+						Portarait.includes(name)
+							? styles.portraitImage
+							: styles.projectImage
+					} z-0`}
 				/>
 				<div
 					className="absolute top-0 left-0 w-full h-20"
@@ -81,14 +86,16 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 					style={{ transform: "translateZ(3rem)" }}>
 					{name}
 				</h1>
-				{/* <div
+				<div
 					className={`
-		    ${styles.techIcons} w-1/2 h-full absolute left-24 top-0 sm:flex items-center hidden
+		    ${styles.techIcons} w-1/2 h-full absolute top-0 sm:flex items-center 
 		  `}>
 					<div className="flex flex-col pb-8">
-						{project.tech.map((el, i) => (
+						{project.tech?.map((el, i) => (
 							<img
-								className={`${i % 2 === 0 && "ml-16"} mb-4`}
+								className={`${
+									i % 2 === 0 && "ml-16"
+								} mb-6 hover:scale-125 duration-500`}
 								src={`/projects/tech/${el}.svg`}
 								alt={el}
 								height={45}
@@ -97,12 +104,13 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 							/>
 						))}
 					</div>
-				</div> */}
-				<h2
-					className="text-lg z-10 tracking-wide font-medium text-white transform-gpu"
+				</div>
+
+				<div
+					className="text-lg z-10  tracking-wide font-medium text-white transform-gpu"
 					style={{ transform: "translateZ(0.8rem)" }}>
 					{description}
-				</h2>
+				</div>
 			</div>
 		</a>
 	);
