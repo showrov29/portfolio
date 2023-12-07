@@ -90,7 +90,7 @@ export const SKILLS = {
 		"python",
 		"c++",
 		// "cpp",
-		// "java",
+		"java",
 		// "python",
 		"nodejs",
 		"firebase",
